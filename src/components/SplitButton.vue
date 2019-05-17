@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.wrap">
+    <div :class="$style.wrap" @click=handleClick>
         <div
             :class="{
                 [$style.left]: true,
@@ -10,6 +10,7 @@
         <div
             :class="{
                 [$style.right]: true,
+                [$style.inactive]: mode === 'ai'
             }">
             <FontAwesomeIcon :icon="computerIcon" :class="$style.faTimes" /> vs AI
         </div>
@@ -39,6 +40,7 @@ export default {
         }
     },
     methods: {
+        handleClick() {this.$emit("gameMode")}
        
     }
 };
